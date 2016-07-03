@@ -7,23 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		004386B71D1FE9280017D63E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004386B61D1FE9280017D63E /* Config.swift */; };
+		004386BA1D1FEEA40017D63E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004386B91D1FEEA40017D63E /* LoginViewController.swift */; };
+		004386BC1D2133880017D63E /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004386BB1D2133880017D63E /* SignupViewController.swift */; };
+		0048D9AE1D23E7DA0098996D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0048D9AD1D23E7DA0098996D /* MapKit.framework */; };
+		0048D9B31D23EBB20098996D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0048D9B21D23EBB20098996D /* SWRevealViewController.m */; };
+		0048D9B51D25007C0098996D /* FamilyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048D9B41D25007C0098996D /* FamilyTableViewController.swift */; };
+		0052877D1D23DFE4005FD56F /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052877C1D23DFE4005FD56F /* LocationViewController.swift */; };
 		0069969A1D1FE6D800C2E5B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006996991D1FE6D800C2E5B4 /* AppDelegate.swift */; };
-		0069969C1D1FE6D800C2E5B4 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0069969B1D1FE6D800C2E5B4 /* FirstViewController.swift */; };
-		0069969E1D1FE6D800C2E5B4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0069969D1D1FE6D800C2E5B4 /* SecondViewController.swift */; };
 		006996A11D1FE6D800C2E5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0069969F1D1FE6D800C2E5B4 /* Main.storyboard */; };
 		006996A31D1FE6D800C2E5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006996A21D1FE6D800C2E5B4 /* Assets.xcassets */; };
 		006996A61D1FE6D800C2E5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006996A41D1FE6D800C2E5B4 /* LaunchScreen.storyboard */; };
+		00A33F451D26330C00AC48FE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F441D26330C00AC48FE /* LocationManager.swift */; };
+		00A33F471D26812500AC48FE /* FamilyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F461D26812500AC48FE /* FamilyModel.swift */; };
+		00A33F491D2684CA00AC48FE /* FamilyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */; };
+		00A33F4B1D27B95F00AC48FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00A33F4A1D27B95F00AC48FE /* GoogleService-Info.plist */; };
+		00A33F4D1D27C84700AC48FE /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F4C1D27C84700AC48FE /* ShoppingModel.swift */; };
+		00A33F4F1D27D7A500AC48FE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F4E1D27D7A500AC48FE /* UserModel.swift */; };
+		00E020211D2147A200F2F2B6 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E020201D2147A200F2F2B6 /* ShoppingTableViewController.swift */; };
+		ED0798083B250D20E37D532F /* Pods_DiDe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AD6B58EE0390A24F3DA41C /* Pods_DiDe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		004386B61D1FE9280017D63E /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		004386B91D1FEEA40017D63E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		004386BB1D2133880017D63E /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0048D9AD1D23E7DA0098996D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0048D9B01D23EBB20098996D /* DiDe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DiDe-Bridging-Header.h"; sourceTree = "<group>"; };
+		0048D9B11D23EBB20098996D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0048D9B21D23EBB20098996D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0048D9B41D25007C0098996D /* FamilyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyTableViewController.swift; sourceTree = "<group>"; };
+		0052877C1D23DFE4005FD56F /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		006996961D1FE6D800C2E5B4 /* DiDe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiDe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		006996991D1FE6D800C2E5B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0069969B1D1FE6D800C2E5B4 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		0069969D1D1FE6D800C2E5B4 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		006996A01D1FE6D800C2E5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		006996A21D1FE6D800C2E5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006996A51D1FE6D800C2E5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		006996A71D1FE6D800C2E5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00A33F441D26330C00AC48FE /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		00A33F461D26812500AC48FE /* FamilyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyModel.swift; sourceTree = "<group>"; };
+		00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyAnnotation.swift; sourceTree = "<group>"; };
+		00A33F4A1D27B95F00AC48FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00A33F4C1D27C84700AC48FE /* ShoppingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
+		00A33F4E1D27D7A500AC48FE /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		00E020201D2147A200F2F2B6 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		30AD6B58EE0390A24F3DA41C /* Pods_DiDe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiDe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C9BD4FDEB7E94D8A048C133 /* Pods-DiDe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiDe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiDe/Pods-DiDe.debug.xcconfig"; sourceTree = "<group>"; };
+		BA5DB497B6D1BCFD78AB14B7 /* Pods-DiDe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiDe.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiDe/Pods-DiDe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +61,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0048D9AE1D23E7DA0098996D /* MapKit.framework in Frameworks */,
+				ED0798083B250D20E37D532F /* Pods_DiDe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		004386B51D1FE9130017D63E /* Deligates */ = {
+			isa = PBXGroup;
+			children = (
+				006996991D1FE6D800C2E5B4 /* AppDelegate.swift */,
+			);
+			name = Deligates;
+			sourceTree = "<group>";
+		};
+		004386B81D1FEE840017D63E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				004386B91D1FEEA40017D63E /* LoginViewController.swift */,
+				004386BB1D2133880017D63E /* SignupViewController.swift */,
+				00E020201D2147A200F2F2B6 /* ShoppingTableViewController.swift */,
+				0052877C1D23DFE4005FD56F /* LocationViewController.swift */,
+				0048D9B41D25007C0098996D /* FamilyTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0048D9AF1D23EB860098996D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00A33F441D26330C00AC48FE /* LocationManager.swift */,
+				0048D9B11D23EBB20098996D /* SWRevealViewController.h */,
+				0048D9B21D23EBB20098996D /* SWRevealViewController.m */,
+				0048D9B01D23EBB20098996D /* DiDe-Bridging-Header.h */,
+				00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		0069968D1D1FE6D800C2E5B4 = {
 			isa = PBXGroup;
 			children = (
 				006996981D1FE6D800C2E5B4 /* DiDe */,
 				006996971D1FE6D800C2E5B4 /* Products */,
+				E80656A20119E1DAEB656F67 /* Pods */,
+				3198491C0C11B9249DBD10D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +122,46 @@
 		006996981D1FE6D800C2E5B4 /* DiDe */ = {
 			isa = PBXGroup;
 			children = (
-				006996991D1FE6D800C2E5B4 /* AppDelegate.swift */,
-				0069969B1D1FE6D800C2E5B4 /* FirstViewController.swift */,
-				0069969D1D1FE6D800C2E5B4 /* SecondViewController.swift */,
+				0048D9AF1D23EB860098996D /* Supporting Files */,
+				00E0201A1D21421700F2F2B6 /* Models */,
+				004386B81D1FEE840017D63E /* Controllers */,
+				004386B51D1FE9130017D63E /* Deligates */,
 				0069969F1D1FE6D800C2E5B4 /* Main.storyboard */,
 				006996A21D1FE6D800C2E5B4 /* Assets.xcassets */,
 				006996A41D1FE6D800C2E5B4 /* LaunchScreen.storyboard */,
 				006996A71D1FE6D800C2E5B4 /* Info.plist */,
+				00A33F4A1D27B95F00AC48FE /* GoogleService-Info.plist */,
+				004386B61D1FE9280017D63E /* Config.swift */,
 			);
 			path = DiDe;
+			sourceTree = "<group>";
+		};
+		00E0201A1D21421700F2F2B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				00A33F461D26812500AC48FE /* FamilyModel.swift */,
+				00A33F4C1D27C84700AC48FE /* ShoppingModel.swift */,
+				00A33F4E1D27D7A500AC48FE /* UserModel.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3198491C0C11B9249DBD10D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0048D9AD1D23E7DA0098996D /* MapKit.framework */,
+				30AD6B58EE0390A24F3DA41C /* Pods_DiDe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E80656A20119E1DAEB656F67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C9BD4FDEB7E94D8A048C133 /* Pods-DiDe.debug.xcconfig */,
+				BA5DB497B6D1BCFD78AB14B7 /* Pods-DiDe.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 006996AA1D1FE6D800C2E5B4 /* Build configuration list for PBXNativeTarget "DiDe" */;
 			buildPhases = (
+				10BF16021CF2F57C4D53437A /* 📦 Check Pods Manifest.lock */,
 				006996921D1FE6D800C2E5B4 /* Sources */,
 				006996931D1FE6D800C2E5B4 /* Frameworks */,
 				006996941D1FE6D800C2E5B4 /* Resources */,
+				76A97BB3EB1C4BD6AC5CC061 /* 📦 Embed Pods Frameworks */,
+				9EFF90660EA5C95C87900658 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -101,7 +201,13 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 6KXVGSZ8K5;
 						DevelopmentTeamName = "Deepak Sinnamani Kumariusha (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -129,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				006996A61D1FE6D800C2E5B4 /* LaunchScreen.storyboard in Resources */,
+				00A33F4B1D27B95F00AC48FE /* GoogleService-Info.plist in Resources */,
 				006996A31D1FE6D800C2E5B4 /* Assets.xcassets in Resources */,
 				006996A11D1FE6D800C2E5B4 /* Main.storyboard in Resources */,
 			);
@@ -136,14 +243,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10BF16021CF2F57C4D53437A /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		76A97BB3EB1C4BD6AC5CC061 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiDe/Pods-DiDe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EFF90660EA5C95C87900658 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiDe/Pods-DiDe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		006996921D1FE6D800C2E5B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0069969E1D1FE6D800C2E5B4 /* SecondViewController.swift in Sources */,
+				004386BC1D2133880017D63E /* SignupViewController.swift in Sources */,
+				004386B71D1FE9280017D63E /* Config.swift in Sources */,
+				00A33F491D2684CA00AC48FE /* FamilyAnnotation.swift in Sources */,
+				00A33F471D26812500AC48FE /* FamilyModel.swift in Sources */,
+				00A33F451D26330C00AC48FE /* LocationManager.swift in Sources */,
+				00A33F4F1D27D7A500AC48FE /* UserModel.swift in Sources */,
+				0048D9B51D25007C0098996D /* FamilyTableViewController.swift in Sources */,
 				0069969A1D1FE6D800C2E5B4 /* AppDelegate.swift in Sources */,
-				0069969C1D1FE6D800C2E5B4 /* FirstViewController.swift in Sources */,
+				00A33F4D1D27C84700AC48FE /* ShoppingModel.swift in Sources */,
+				004386BA1D1FEEA40017D63E /* LoginViewController.swift in Sources */,
+				0048D9B31D23EBB20098996D /* SWRevealViewController.m in Sources */,
+				00E020211D2147A200F2F2B6 /* ShoppingTableViewController.swift in Sources */,
+				0052877D1D23DFE4005FD56F /* LocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,24 +425,31 @@
 		};
 		006996AB1D1FE6D800C2E5B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C9BD4FDEB7E94D8A048C133 /* Pods-DiDe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DiDe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mercury.DiDe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercury.dide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DiDe/DiDe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		006996AC1D1FE6D800C2E5B4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5DB497B6D1BCFD78AB14B7 /* Pods-DiDe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DiDe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mercury.DiDe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercury.dide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DiDe/DiDe-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -301,6 +473,7 @@
 				006996AC1D1FE6D800C2E5B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
