@@ -14,7 +14,10 @@ import FirebaseDatabase
 class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     let locationManager = LocationManager.sharedInstance
-    var trackedPerson = LocationManager.sharedInstance.trackedPerson
+    var currentUser:User!
+    
+    let dbRef = FIRDatabase.database().reference().child("user")
+    var refHandle: FIRDatabaseHandle!
     
     @IBOutlet weak var locateMapView: MKMapView!
     @IBOutlet weak var openSideBar: UIBarButtonItem!
@@ -24,7 +27,8 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let appDeligate = UIApplication.shared().delegate as! AppDelegate
+        self.currentUser = appDeligate.currentUser
         
         openSideBar.target = self.revealViewController()
         openSideBar.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -33,34 +37,22 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         self.locateMapView.showsUserLocation = true
         
         // Set the title
-        if var trackedPerson = trackedPerson {
+        if let trackedPerson = LocationManager.sharedInstance.trackedPerson {
             titleNavigationItem.title = "Tracking " + (trackedPerson.displayName)
             
-            // Request tracking
-            trackedPerson.tracking += 1
-            trackedPerson.updateUser(user: trackedPerson)
-            
-            // Set the tracked users location
-            //setLocation(latitude: trackedPerson.latitude, longitude: trackedPerson.longitude)
-            //markLocation(latitude: trackedPerson.latitude, longitude: trackedPerson.longitude)
+            // Start observing
+            self.startObservingDB()
         }
         else {
-            titleNavigationItem.title = "Tracking yourself"
+            titleNavigationItem.title = "Tracking random"
         }
-        
-        startObservingDB()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        
-    }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if var trackedPerson = trackedPerson {
-            // Stop tracking
-            trackedPerson.tracking -= 1
-            trackedPerson.updateUser(user: trackedPerson)
+        
+        if let refHandle = self.refHandle {
+            dbRef.removeObserver(withHandle: refHandle)
         }
     }
 
@@ -92,6 +84,7 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
          * 2. If not found add it to the map
          * 3. Finally update the friend record
          */
+        let trackedPerson = LocationManager.sharedInstance.trackedPerson
         
         // 1. If found the anotation already just update the location
         if let index = locationManager.familyPins.index(where: {$0.key == trackedPerson?.key}) {
@@ -126,19 +119,23 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     func startObservingDB() {
-        
-        let dbRef = FIRDatabase.database().reference().child("user")
-        
-        dbRef.observe(.value, with: { (snapshot) in
+    
+        self.refHandle = dbRef.observe(.value, with: { (snapshot) in
             
             for snapshotItem in snapshot.children {
                 
-                let user = User(snapshot: snapshotItem as! FIRDataSnapshot)
-                
-                // Set the users location
-                self.setLocation(latitude: user.latitude, longitude: user.longitude)
-                self.markLocation(latitude: user.latitude, longitude: user.longitude)
-            
+                if let trackedPerson = LocationManager.sharedInstance.trackedPerson {
+                    
+                    let user = User(snapshot: snapshotItem as! FIRDataSnapshot)
+                    
+                    if(user.email != trackedPerson.email) {
+                        continue
+                    }
+                    
+                    self.setLocation(latitude: user.latitude, longitude: user.longitude)
+                    self.markLocation(latitude: user.latitude, longitude: user.longitude)
+                    
+                }
             }
             
         }) { (error) in

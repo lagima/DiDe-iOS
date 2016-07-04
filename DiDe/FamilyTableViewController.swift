@@ -15,12 +15,19 @@ class FamilyTableViewController: UITableViewController {
     let locationManager = LocationManager.sharedInstance
     var dbRef:FIRDatabaseReference!
     var familyMembers = [User]()
+    var currentUser:User!
+    
+    var previouslyTracked:User!
+    var currentlyTracked:User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.separatorInset = UIEdgeInsetsZero
         self.tableView.layoutMargins = UIEdgeInsetsZero
+        
+        let appDeligate = UIApplication.shared().delegate as! AppDelegate
+        self.currentUser = appDeligate.currentUser
         
         // Do any additional setup after loading the view.
         dbRef = FIRDatabase.database().reference().child("user")
@@ -29,9 +36,10 @@ class FamilyTableViewController: UITableViewController {
         self.startObservingDB()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,14 +82,40 @@ class FamilyTableViewController: UITableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let navController = storyboard.instantiateViewController(withIdentifier: "LocationNavigationController") as! UINavigationController
         //let destination = storyboard.instantiateViewController(withIdentifier: "LocationViewController") as! LocationViewController
-        let familyMember = familyMembers[indexPath.row]
+        var familyMember = familyMembers[indexPath.row]
         
-        // Assign the tracked user data
-        locationManager.trackedPerson = familyMember
         
-        // Close the sidebar and show map
-        revealViewController().revealToggle(animated: true);
-        revealViewController().pushFrontViewController(navController, animated:false)
+        // If previously tracked == currently tracked do nothing
+        if(self.previouslyTracked != nil && familyMember.email == self.previouslyTracked.email) {
+            // Close the sidebar
+            revealViewController().revealToggle(animated: true);
+        }
+        else {
+            
+            // Save the tracked user in placeholder
+            LocationManager.sharedInstance.trackedPerson = familyMember
+            
+            // Stop tracking previously tracked
+            if(self.previouslyTracked != nil) {
+                self.previouslyTracked.tracking -= 1
+                self.previouslyTracked.updateTracking()
+            }
+            
+            // Start tracking new
+            familyMember.tracking += 1
+            familyMember.updateTracking()
+            
+            // Update who we are tracking
+            self.currentUser?.trackedUser = familyMember.email
+            self.currentUser?.updateTrackedUser()
+            
+            // Set this currently tracked on previous for next cycle
+            self.previouslyTracked = familyMember
+            
+            // Close the sidebar and show map
+            revealViewController().revealToggle(animated: true);
+            revealViewController().setFront(navController, animated:false)
+        }
     }
     
     // MARK: DB Observers
@@ -95,6 +129,11 @@ class FamilyTableViewController: UITableViewController {
             for snapshotItem in snapshot.children {
                 let user = User(snapshot: snapshotItem as! FIRDataSnapshot)
                 newMembers.append(user)
+                
+                // Update the user
+                if(LocationManager.sharedInstance.trackedPerson != nil && user.email == LocationManager.sharedInstance.trackedPerson?.email) {
+                    LocationManager.sharedInstance.trackedPerson = user
+                }
             }
             
             self.familyMembers = newMembers
@@ -102,6 +141,7 @@ class FamilyTableViewController: UITableViewController {
             
         }) { (error) in
             // error handling
+            print(error.description)
         }
     }
 }

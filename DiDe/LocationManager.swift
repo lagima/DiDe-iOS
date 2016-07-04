@@ -19,6 +19,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     var currentLocation: CLLocation?
     var trackedPerson: User?
+    var currentUser: User?
     var familyPins = [FamilyAnnotation]()
     
     
@@ -64,17 +65,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         // print(self.currentLocation)
         
         // Update the user object
-        let prevLatitude = trackedPerson?.latitude
-        let prevLongitude = trackedPerson?.longitude
+        let prevLatitude = currentUser?.latitude
+        let prevLongitude = currentUser?.longitude
         let currLatitude = location?.coordinate.latitude
         let currLongitude = location?.coordinate.longitude
         
-        if(trackedPerson != nil && prevLatitude != currLatitude && prevLongitude != currLongitude) {
-            trackedPerson?.latitude = currLatitude
-            trackedPerson?.longitude = currLongitude
+        if(currentUser != nil && prevLatitude != currLatitude && prevLongitude != currLongitude) {
+            currentUser?.latitude = currLatitude
+            currentUser?.longitude = currLongitude
             
             // Update the location to DB
-            trackedPerson?.updateUser(user: trackedPerson!);
+            currentUser?.updateLocation();
         }
     }
     

@@ -48,6 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        
+        // Untrack any tracked users
+        if var previouslyTracked = LocationManager.sharedInstance.trackedPerson {
+            previouslyTracked.tracking -= 1
+            previouslyTracked.updateTracking()
+            
+            LocationManager.sharedInstance.trackedPerson = nil
+        }
     }
 
     
@@ -67,13 +75,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRAuth.auth()?.addStateDidChangeListener({ (auth:FIRAuth, user:FIRUser?) in
             
             if let user = user {
-                // User is signed in.
-                self.currentUser = User(email: user.email!, displayName: "")
-                self.startObservingDB()
                 
-                self.window?.rootViewController = tabBarController
+                let dbRef = FIRDatabase.database().reference().child("user")
+                // User is signed in get data
+                dbRef.child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    self.currentUser = User(snapshot: snapshot)
+                    
+                    self.startObservingDB()
+                    
+                    self.window?.rootViewController = tabBarController
+                   
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
             }
-            else{
+            else {
                 // No user is signed in.
                 self.window?.rootViewController = loginViewController
             }
@@ -94,11 +111,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // If current user is in snapshot
                 if(user.email != self.currentUser.email) {
-                    continue;
+                    continue
                 }
                 
+                // If the user is current user update em
+                self.currentUser = user
+                
                 if(user.tracking > 0) {
-                    print(user.email)
+                    print("Tracking: \(user.email)")
+                    LocationManager.sharedInstance.currentUser = user
                     LocationManager.sharedInstance.startTracking();
                 } else {
                     LocationManager.sharedInstance.stopTracking();

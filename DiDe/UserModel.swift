@@ -15,18 +15,16 @@ struct User {
     let itemRef: FIRDatabaseReference?
     let email:String
     var displayName: String
-    var relations: [String: String] = [:]
+    var relations: [NSDictionary]!
     
     var latitude: Double!
     var longitude: Double!
     var tracking: Int
     var trackedUser: String!
     
-    
     init(snapshot:FIRDataSnapshot) {
         
         self.key = snapshot.key
-        self.relations = [:]
         self.itemRef = snapshot.ref
         
         if let email = snapshot.value!["email"] as? String {
@@ -64,13 +62,19 @@ struct User {
         } else {
             self.trackedUser = ""
         }
+        
+        if let relations = snapshot.value!["relations"] as? [NSDictionary] {
+            self.relations = relations
+        } else {
+            self.relations = nil
+        }
     }
     
     init (email:String, displayName: String, key: String = "", trackedUser: String = "") {
         self.key = key
         self.email = email
         self.displayName = displayName
-        self.relations = [:]
+        self.relations = nil
         self.itemRef = nil
         self.tracking = 0
         self.trackedUser = trackedUser
@@ -80,7 +84,7 @@ struct User {
         return [
             "displayName": displayName,
             "email": email,
-            "relations": relations,
+            // "relations": relations,
             "latitude": latitude,
             "longitude": longitude,
             "tracking": tracking,
@@ -89,9 +93,18 @@ struct User {
     }
     
     func updateUser(user: User) {
-        
-        // var dbRef = FIRDatabase.database().reference().child("user")
-        
         user.itemRef?.setValue(user.toAnyObject())
+    }
+    
+    func updateTracking() {
+        self.itemRef?.updateChildValues(["tracking": tracking])
+    }
+    
+    func updateTrackedUser() {
+        self.itemRef?.updateChildValues(["trackedUser": trackedUser])
+    }
+    
+    func updateLocation() {
+        self.itemRef?.updateChildValues(["latitude": latitude, "longitude": longitude])
     }
 }
