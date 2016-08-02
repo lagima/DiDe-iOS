@@ -23,7 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please give location permission</string>
+	<string>We use this permission to notify your family when you enter/leave an area</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use this permission to send location update while tracking</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

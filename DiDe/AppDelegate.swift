@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Connect to Firebase
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
         
         self.prepareApp();
         
@@ -51,8 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Untrack any tracked users
         if var previouslyTracked = LocationManager.sharedInstance.trackedPerson {
-            previouslyTracked.tracking -= 1
-            previouslyTracked.updateTracking()
+            previouslyTracked.decrementTracking()
             
             LocationManager.sharedInstance.trackedPerson = nil
         }

@@ -21,13 +21,13 @@ class MainTabViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         
-        if(item.tag != 2) {
+        if(self.tabBarController?.selectedIndex != 1) {
             // Untrack any tracked users
             if var previouslyTracked = LocationManager.sharedInstance.trackedPerson {
-                previouslyTracked.tracking -= 1
-                previouslyTracked.updateTracking()
+                previouslyTracked.decrementTracking()
                 
                 LocationManager.sharedInstance.trackedPerson = nil
             }

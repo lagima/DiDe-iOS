@@ -96,7 +96,16 @@ struct User {
         user.itemRef?.setValue(user.toAnyObject())
     }
     
-    func updateTracking() {
+    mutating func incrementTracking() {
+        self.tracking += 1
+        self.itemRef?.updateChildValues(["tracking": tracking])
+    }
+    
+    mutating func decrementTracking() {
+        
+        self.tracking -= 1
+        self.tracking = self.tracking < 0 ? 0 : self.tracking
+        
         self.itemRef?.updateChildValues(["tracking": tracking])
     }
     

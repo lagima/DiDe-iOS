@@ -15,6 +15,8 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
 
     let locationManager = LocationManager.sharedInstance
     var currentUser:User!
+    var familyPins = [FamilyAnnotation]()
+    
     
     let dbRef = FIRDatabase.database().reference().child("user")
     var refHandle: FIRDatabaseHandle!
@@ -35,7 +37,9 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
         // Map related code
         self.locateMapView.showsUserLocation = true
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // Set the title
         if let trackedPerson = LocationManager.sharedInstance.trackedPerson {
             titleNavigationItem.title = "Tracking " + (trackedPerson.displayName)
@@ -44,7 +48,16 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             self.startObservingDB()
         }
         else {
-            titleNavigationItem.title = "Tracking random"
+            titleNavigationItem.title = "Tracking You"
+            
+            // Remove all annotations
+            self.locateMapView.removeAnnotations(familyPins)
+            familyPins.removeAll()
+            
+            // Set self tracking
+            let latitude = self.locateMapView.userLocation.coordinate.latitude
+            let longitude = self.locateMapView.userLocation.coordinate.longitude
+            setLocation(latitude: latitude, longitude: longitude)
         }
     }
     
@@ -87,13 +100,13 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         let trackedPerson = LocationManager.sharedInstance.trackedPerson
         
         // 1. If found the anotation already just update the location
-        if let index = locationManager.familyPins.index(where: {$0.key == trackedPerson?.key}) {
+        if let index = self.familyPins.index(where: {$0.key == trackedPerson?.key}) {
             
             // Replace the annotation from our records
-            let annotation = locationManager.familyPins[index]
+            let annotation = self.familyPins[index]
 
             // Update the new location with animation
-            UIView.animate(withDuration: 0.25) {
+            UIView.animate(withDuration: 0.50) {
                 var location = annotation.coordinate
                 location.latitude = latitude
                 location.longitude = longitude
@@ -114,7 +127,7 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             locateMapView.addAnnotation(annotation)
             
             // Keep a note of this marker
-            locationManager.familyPins.append(annotation);
+            self.familyPins.append(annotation);
         }
     }
     

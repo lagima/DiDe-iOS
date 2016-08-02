@@ -20,7 +20,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     var currentLocation: CLLocation?
     var trackedPerson: User?
     var currentUser: User?
-    var familyPins = [FamilyAnnotation]()
     
     
     private override init() {

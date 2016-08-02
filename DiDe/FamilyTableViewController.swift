@@ -69,10 +69,11 @@ class FamilyTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! FamilyTableViewCell
         
         let familyMember = familyMembers[indexPath.row]
-        cell.textLabel?.text = familyMember.displayName
+        cell.familyMemberLabel.text = familyMember.displayName
+        cell.trackingCountLabel.text = String(familyMember.tracking)
         
         return cell;
     }
@@ -86,7 +87,10 @@ class FamilyTableViewController: UITableViewController {
         
         
         // If previously tracked == currently tracked do nothing
-        if(self.previouslyTracked != nil && familyMember.email == self.previouslyTracked.email) {
+        if(self.previouslyTracked != nil
+            && familyMember.email == self.previouslyTracked.email
+            && familyMember.tracking > 0
+            && familyMember.email == self.currentUser.trackedUser) {
             // Close the sidebar
             revealViewController().revealToggle(animated: true);
         }
@@ -97,13 +101,11 @@ class FamilyTableViewController: UITableViewController {
             
             // Stop tracking previously tracked
             if(self.previouslyTracked != nil) {
-                self.previouslyTracked.tracking -= 1
-                self.previouslyTracked.updateTracking()
+                self.previouslyTracked.decrementTracking()
             }
             
             // Start tracking new
-            familyMember.tracking += 1
-            familyMember.updateTracking()
+            familyMember.incrementTracking()
             
             // Update who we are tracking
             self.currentUser?.trackedUser = familyMember.email
@@ -129,6 +131,11 @@ class FamilyTableViewController: UITableViewController {
             for snapshotItem in snapshot.children {
                 let user = User(snapshot: snapshotItem as! FIRDataSnapshot)
                 newMembers.append(user)
+                
+                // If the current user is set to any user set that as tracked person
+                if(self.currentUser.trackedUser == user.email) {
+                    LocationManager.sharedInstance.trackedPerson = user
+                }
                 
                 // Update the user
                 if(LocationManager.sharedInstance.trackedPerson != nil && user.email == LocationManager.sharedInstance.trackedPerson?.email) {

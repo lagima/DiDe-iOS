@@ -18,6 +18,7 @@
 		006996A11D1FE6D800C2E5B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0069969F1D1FE6D800C2E5B4 /* Main.storyboard */; };
 		006996A31D1FE6D800C2E5B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006996A21D1FE6D800C2E5B4 /* Assets.xcassets */; };
 		006996A61D1FE6D800C2E5B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 006996A41D1FE6D800C2E5B4 /* LaunchScreen.storyboard */; };
+		007855571D2D1CB60099052A /* ReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007855561D2D1CB60099052A /* ReminderTableViewController.swift */; };
 		00A33F451D26330C00AC48FE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F441D26330C00AC48FE /* LocationManager.swift */; };
 		00A33F471D26812500AC48FE /* FamilyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F461D26812500AC48FE /* FamilyModel.swift */; };
 		00A33F491D2684CA00AC48FE /* FamilyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */; };
@@ -25,6 +26,7 @@
 		00A33F4D1D27C84700AC48FE /* ShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F4C1D27C84700AC48FE /* ShoppingModel.swift */; };
 		00A33F4F1D27D7A500AC48FE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A33F4E1D27D7A500AC48FE /* UserModel.swift */; };
 		00C006031D2A73610039C419 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C006021D2A73610039C419 /* MainTabViewController.swift */; };
+		00C006061D2BD6BA0039C419 /* FamilyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C006051D2BD6BA0039C419 /* FamilyTableViewCell.swift */; };
 		00E020211D2147A200F2F2B6 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E020201D2147A200F2F2B6 /* ShoppingTableViewController.swift */; };
 		ED0798083B250D20E37D532F /* Pods_DiDe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AD6B58EE0390A24F3DA41C /* Pods_DiDe.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +47,7 @@
 		006996A21D1FE6D800C2E5B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006996A51D1FE6D800C2E5B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		006996A71D1FE6D800C2E5B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		007855561D2D1CB60099052A /* ReminderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewController.swift; sourceTree = "<group>"; };
 		00A33F441D26330C00AC48FE /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		00A33F461D26812500AC48FE /* FamilyModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyModel.swift; sourceTree = "<group>"; };
 		00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyAnnotation.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		00A33F4C1D27C84700AC48FE /* ShoppingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingModel.swift; sourceTree = "<group>"; };
 		00A33F4E1D27D7A500AC48FE /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		00C006021D2A73610039C419 /* MainTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		00C006051D2BD6BA0039C419 /* FamilyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyTableViewCell.swift; sourceTree = "<group>"; };
 		00E020201D2147A200F2F2B6 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		30AD6B58EE0390A24F3DA41C /* Pods_DiDe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiDe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9BD4FDEB7E94D8A048C133 /* Pods-DiDe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiDe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiDe/Pods-DiDe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 				0052877C1D23DFE4005FD56F /* LocationViewController.swift */,
 				0048D9B41D25007C0098996D /* FamilyTableViewController.swift */,
 				00C006021D2A73610039C419 /* MainTabViewController.swift */,
+				007855561D2D1CB60099052A /* ReminderTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -99,7 +104,6 @@
 				0048D9B11D23EBB20098996D /* SWRevealViewController.h */,
 				0048D9B21D23EBB20098996D /* SWRevealViewController.m */,
 				0048D9B01D23EBB20098996D /* DiDe-Bridging-Header.h */,
-				00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -125,6 +129,7 @@
 		006996981D1FE6D800C2E5B4 /* DiDe */ = {
 			isa = PBXGroup;
 			children = (
+				00C006041D2BD67E0039C419 /* Partials */,
 				0048D9AF1D23EB860098996D /* Supporting Files */,
 				00E0201A1D21421700F2F2B6 /* Models */,
 				004386B81D1FEE840017D63E /* Controllers */,
@@ -137,6 +142,15 @@
 				004386B61D1FE9280017D63E /* Config.swift */,
 			);
 			path = DiDe;
+			sourceTree = "<group>";
+		};
+		00C006041D2BD67E0039C419 /* Partials */ = {
+			isa = PBXGroup;
+			children = (
+				00A33F481D2684CA00AC48FE /* FamilyAnnotation.swift */,
+				00C006051D2BD6BA0039C419 /* FamilyTableViewCell.swift */,
+			);
+			name = Partials;
 			sourceTree = "<group>";
 		};
 		00E0201A1D21421700F2F2B6 /* Models */ = {
@@ -306,9 +320,11 @@
 				00A33F451D26330C00AC48FE /* LocationManager.swift in Sources */,
 				00C006031D2A73610039C419 /* MainTabViewController.swift in Sources */,
 				00A33F4F1D27D7A500AC48FE /* UserModel.swift in Sources */,
+				00C006061D2BD6BA0039C419 /* FamilyTableViewCell.swift in Sources */,
 				0048D9B51D25007C0098996D /* FamilyTableViewController.swift in Sources */,
 				0069969A1D1FE6D800C2E5B4 /* AppDelegate.swift in Sources */,
 				00A33F4D1D27C84700AC48FE /* ShoppingModel.swift in Sources */,
+				007855571D2D1CB60099052A /* ReminderTableViewController.swift in Sources */,
 				004386BA1D1FEEA40017D63E /* LoginViewController.swift in Sources */,
 				0048D9B31D23EBB20098996D /* SWRevealViewController.m in Sources */,
 				00E020211D2147A200F2F2B6 /* ShoppingTableViewController.swift in Sources */,
@@ -434,6 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DiDe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercury.dide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,6 +467,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = DiDe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercury.dide;
 				PRODUCT_NAME = "$(TARGET_NAME)";
